@@ -10,11 +10,14 @@ import { PaymentMethods } from './components/PaymentMethods';
 import { GameplayPreview } from './components/GameplayPreview';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
+import { Location } from './components/Location';
+import { WelcomePopup } from './components/WelcomePopup';
 
 export default function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#0A0F1F] text-white">
+        <div className="min-h-screen bg-[#080c18] text-white">
+        <WelcomePopup />
         <Header />
         <main>
           <HeroSection />
@@ -25,6 +28,7 @@ export default function App() {
           <PaymentMethods />
           <GameplayPreview />
           <FinalCTA />
+          <Location />
         </main>
         <Footer />
       </div>

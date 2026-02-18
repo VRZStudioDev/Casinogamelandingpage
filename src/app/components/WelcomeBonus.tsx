@@ -1,259 +1,158 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
-import { Gift, TrendingUp, Users, Clock } from 'lucide-react';
+import { Gift, TrendingUp, Users, Clock, Zap } from 'lucide-react';
 
 export const WelcomeBonus: React.FC = () => {
   const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 15, seconds: 30 });
-  const [recentWinners, setRecentWinners] = useState<{ name: string; amount: string }[]>([]);
-
-  // Countdown timer
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         let { hours, minutes, seconds } = prev;
         seconds--;
-        if (seconds < 0) {
-          seconds = 59;
-          minutes--;
-          if (minutes < 0) {
-            minutes = 59;
-            hours--;
-            if (hours < 0) hours = 23;
-          }
-        }
+        if (seconds < 0) { seconds = 59; minutes--; }
+        if (minutes < 0) { minutes = 59; hours--; }
+        if (hours < 0) hours = 23;
         return { hours, minutes, seconds };
       });
     }, 1000);
     return () => clearInterval(timer);
   }, []);
 
-  // Recent winners popup
-  useEffect(() => {
-    const winners = [
-      { name: 'João S.', amount: '$2,450' },
-      { name: 'María G.', amount: '$1,890' },
-      { name: 'Carlos R.', amount: '$3,200' },
-      { name: 'Ana P.', amount: '$1,500' },
-      { name: 'Pedro M.', amount: '$4,100' },
-    ];
-
-    const showWinner = () => {
-      const randomWinner = winners[Math.floor(Math.random() * winners.length)];
-      setRecentWinners(prev => [randomWinner, ...prev.slice(0, 2)]);
-    };
-
-    const interval = setInterval(showWinner, 5000);
-    showWinner();
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="py-12 sm:py-20 bg-gradient-to-br from-[#0A0F1F] via-[#1a0a2e] to-[#0A0F1F] relative overflow-hidden">
-      {/* Animated Background Glow */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background: [
-            'radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.1) 0%, transparent 70%)',
-            'radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.2) 0%, transparent 70%)',
-            'radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.1) 0%, transparent 70%)',
-          ],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-        }}
-      />
+    <section className="py-16 sm:py-24 bg-[#080c18] relative overflow-hidden">
+      {/* Background orbs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-red-600/[0.04] rounded-full blur-[120px]" />
 
-      <div className="w-full px-3 sm:px-4 max-w-5xl mx-auto relative z-10">
+      <div className="w-full px-4 sm:px-6 max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-[#FF006E]/10 to-[#C51162]/10 backdrop-blur-lg border-2 border-[#FF006E] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 relative overflow-hidden"
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden"
         >
-          {/* Shine Animation */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-            animate={{
-              x: ['-200%', '200%'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
+          {/* Card background with inner border glow */}
+          <div className="absolute inset-0 glass-card" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
 
-          {/* Gift Icon */}
-          <motion.div
-            className="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 text-6xl sm:text-9xl opacity-20"
-            animate={{
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-            }}
-          >
-            🎁
-          </motion.div>
-
-          <div className="relative z-10">
+          <div className="relative z-10 p-6 sm:p-10 md:p-14">
             {/* Header */}
-            <div className="text-center mb-6 sm:mb-8">
+            <div className="text-center mb-8 sm:mb-10">
               <motion.div
-                className="inline-flex items-center gap-2 bg-[#FF006E]/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4"
-                animate={{
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
+                className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full mb-5"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <Gift className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF006E]" />
-                <span className="text-xs sm:text-sm font-semibold text-[#FF006E]">LIMITED TIME OFFER</span>
+                <Zap className="w-3.5 h-3.5 text-amber-400" />
+                <span className="text-xs font-semibold text-amber-400/90 tracking-wide uppercase">Oferta Limitada</span>
               </motion.div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-4">
-                <span className="bg-gradient-to-r from-[#FF006E] to-[#FF4081] bg-clip-text text-transparent">
-                  {t('welcomeBonus')}
-                </span>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
+                {t('welcomeBonus')}
               </h2>
-              <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2">
-                {t('upTo')}
-              </p>
-              <p className="text-xl sm:text-2xl md:text-4xl font-bold bg-gradient-to-r from-[#FF4081] to-[#F50057] bg-clip-text text-transparent">
+              <p className="text-2xl sm:text-4xl font-bold text-white/90 mb-1">{t('upTo')}</p>
+              <p className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
                 {t('freeSpins')}
               </p>
             </div>
 
-            {/* Bonus Breakdown */}
-            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-              <div className="bg-white/5 backdrop-blur-sm border border-[#FF006E]/30 rounded-xl p-4 sm:p-6">
-                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF006E]" />
-                  <h3 className="font-semibold text-white text-sm sm:text-base">{t('firstDeposit')}</h3>
+            {/* Bonus Features Grid */}
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
+              <div className="glass-card rounded-xl p-4 sm:p-5">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-red-600/20 flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-red-400" />
+                  </div>
+                  <h3 className="font-semibold text-white text-sm">{t('firstDeposit')}</h3>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3 overflow-hidden">
+                <div className="w-full bg-white/[0.06] rounded-full h-2 overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-[#FF006E] to-[#FF4081]"
+                    className="h-full bg-gradient-to-r from-red-600 to-red-400 rounded-full"
                     initial={{ width: 0 }}
                     whileInView={{ width: '100%' }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.3 }}
+                    transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </div>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-sm border border-[#FF4081]/30 rounded-xl p-4 sm:p-6">
-                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                  >
-                    🪙
-                  </motion.div>
-                  <h3 className="font-semibold text-white text-sm sm:text-base">{t('freeSpinsOn')}</h3>
+              <div className="glass-card rounded-xl p-4 sm:p-5">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-600/20 flex items-center justify-center">
+                    <Gift className="w-4 h-4 text-amber-400" />
+                  </div>
+                  <h3 className="font-semibold text-white text-sm">{t('freeSpinsOn')}</h3>
                 </div>
                 <div className="flex gap-1">
                   {[...Array(10)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="flex-1 h-2 sm:h-3 bg-gradient-to-r from-[#FF4081] to-[#F50057] rounded-full"
+                      className="flex-1 h-2 bg-gradient-to-r from-amber-500 to-amber-400 rounded-full"
                       initial={{ opacity: 0, scale: 0 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
+                      transition={{ delay: i * 0.08 }}
                     />
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Countdown Timer */}
-            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 border border-red-500/50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-red-400 animate-pulse" />
-                <p className="text-red-400 font-semibold text-sm sm:text-base">{t('offerEnds')}</p>
+            {/* Countdown */}
+            <div className="glass-card rounded-xl p-4 sm:p-5 mb-8 border border-red-500/10">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Clock className="w-4 h-4 text-red-400" />
+                <p className="text-red-400 font-semibold text-sm">{t('offerEnds')}</p>
               </div>
-              <div className="flex justify-center gap-2 sm:gap-4">
+              <div className="flex justify-center gap-3">
                 {[
                   { value: timeLeft.hours, label: t('hours') },
                   { value: timeLeft.minutes, label: t('minutes') },
                   { value: timeLeft.seconds, label: 's' },
-                ].map((item, index) => (
-                  <div key={index} className="text-center">
-                    <motion.div
-                      className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 sm:px-4 py-2 sm:py-3 min-w-[50px] sm:min-w-[70px]"
-                      animate={{
-                        scale: item.label === 's' && timeLeft.seconds % 2 === 0 ? 1.05 : 1,
-                      }}
-                    >
-                      <div className="text-2xl sm:text-3xl font-bold text-white">
+                ].map((item, i) => (
+                  <div key={i} className="text-center">
+                    <div className="bg-white/[0.06] border border-white/[0.08] rounded-lg px-3 sm:px-5 py-2 sm:py-3 min-w-[52px] sm:min-w-[70px]">
+                      <div className="text-2xl sm:text-3xl font-bold text-white font-mono tabular-nums">
                         {item.value.toString().padStart(2, '0')}
                       </div>
-                      <div className="text-[10px] sm:text-xs text-gray-400">{item.label}</div>
-                    </motion.div>
+                      <div className="text-[10px] text-gray-500 mt-0.5">{item.label}</div>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* CTA Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full py-4 sm:py-6 bg-gradient-to-r from-[#FF006E] to-[#C51162] rounded-xl text-xl sm:text-2xl font-bold text-white shadow-2xl shadow-[#FF006E]/50 relative overflow-hidden group mb-4 sm:mb-6"
+            {/* CTA */}
+            <motion.a
+              href="https://casinoamambay.online/bonus"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="block relative w-full py-4 sm:py-5 rounded-xl font-bold text-white text-lg sm:text-xl overflow-hidden group text-center"
             >
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-red-600 gradient-animate" />
+              <div className="absolute inset-[1px] rounded-[11px] bg-gradient-to-b from-white/[0.12] to-transparent opacity-60" />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                animate={{
-                  x: ['-200%', '200%'],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"
+                animate={{ x: ['-200%', '200%'] }}
+                transition={{ duration: 3, repeat: Infinity, ease: [0.22, 1, 0.36, 1] }}
               />
               <span className="relative z-10">{t('claimBonus')}</span>
-            </motion.button>
+            </motion.a>
 
-            {/* Social Proof */}
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-gray-400">
-              <Users className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>
-                {t('limitedOffer')} - <strong className="text-[#FF006E]">127</strong> {t('playersJoined')}
-              </span>
+            {/* Social proof */}
+            <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-500">
+              <Users className="w-3.5 h-3.5" />
+              <span>{t('limitedOffer')} · <strong className="text-red-400">127</strong> {t('playersJoined')}</span>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Floating Winner Notifications - Hidden on small mobile */}
-      <div className="fixed right-2 sm:right-4 top-20 sm:top-24 z-50 space-y-2 hidden sm:block">
-        {recentWinners.slice(0, 2).map((winner, index) => (
-          <motion.div
-            key={`${winner.name}-${index}`}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            className="bg-gradient-to-r from-green-900/90 to-emerald-900/90 backdrop-blur-lg border border-green-500/50 rounded-lg p-3 sm:p-4 shadow-xl max-w-[200px] sm:max-w-[250px]"
-          >
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="text-xl sm:text-2xl">🎉</div>
-              <div>
-                <p className="font-semibold text-white text-xs sm:text-sm">{winner.name}</p>
-                <p className="text-green-400 font-bold text-sm sm:text-base">{winner.amount}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
     </section>
   );
 };

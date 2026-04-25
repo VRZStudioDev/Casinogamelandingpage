@@ -27,9 +27,9 @@ export const FeaturedGames: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#080c18] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0a0814] relative overflow-hidden cv-auto">
       {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-600/[0.04] rounded-full blur-[100px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-600/[0.04] rounded-full blur-[100px]" />
 
       <div className="w-full px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -39,9 +39,9 @@ export const FeaturedGames: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/10 border border-red-500/15 mb-4">
-            <Flame className="w-3.5 h-3.5 text-red-400" />
-            <span className="text-xs font-medium text-red-400/80 tracking-wide uppercase">Mais Jogados</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 border border-emerald-500/15 mb-4">
+            <Flame className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="text-xs font-medium text-emerald-400/80 tracking-wide uppercase">Mais Jogados</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             {t('featuredGames')}
@@ -76,6 +76,7 @@ export const FeaturedGames: React.FC = () => {
                     alt={game.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
+                    decoding="async"
                   />
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
@@ -83,7 +84,7 @@ export const FeaturedGames: React.FC = () => {
                       initial={{ opacity: 0, scale: 0.6 }}
                       animate={hoveredGame === game.id ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
                       transition={{ duration: 0.2 }}
-                      className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-xl shadow-red-600/40"
+                      className="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center shadow-xl shadow-emerald-600/40"
                     >
                       <Play className="w-5 h-5 text-white fill-white ml-0.5" />
                     </motion.div>
@@ -91,7 +92,7 @@ export const FeaturedGames: React.FC = () => {
 
                   {/* Hot badge */}
                   {game.hot && (
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-red-600/90 text-[10px] font-bold text-white tracking-wider flex items-center gap-1">
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-emerald-600/90 text-[10px] font-bold text-white tracking-wider flex items-center gap-1">
                       <Flame className="w-2.5 h-2.5" />
                       HOT
                     </div>
@@ -128,7 +129,7 @@ export const FeaturedGames: React.FC = () => {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 text-sm font-medium text-gray-300 hover:text-white"
           >
             Ver todos os jogos
-            <span className="text-red-400">→</span>
+            <span className="text-emerald-400">→</span>
           </motion.a>
         </div>
       </div>

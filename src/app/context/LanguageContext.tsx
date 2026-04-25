@@ -14,7 +14,7 @@ const translations: Record<Language, Record<string, string>> = {
     playNow: 'PLAY NOW',
     
     // Hero
-    heroHeadline: 'WIN BIG AT CASINO AMAMBAY',
+    heroHeadline: 'WIN BIG AT BILLIONS BET',
     heroSubheadline: 'Experience the thrill of winning with our premium casino games',
     currentJackpot: 'Current Jackpot',
     
@@ -66,8 +66,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Location
     locationBadge: 'Our Location',
     locationTitle: 'VISIT US IN PERSON',
-    locationSubtitle: 'Experience the luxury and excitement at Amambay Hotel Casino in Pedro Juan Caballero, Paraguay.',
-    locationMapTitle: 'Amambay Hotel Casino Location',
+    locationSubtitle: 'Experience the luxury and excitement at Billions Bet in Pedro Juan Caballero, Paraguay.',
+    locationMapTitle: 'Billions Bet Location',
     locationAddress: 'Address',
     locationHours: 'Opening Hours',
     locationOpen247: 'Open 24 hours a day, 7 days a week',
@@ -90,7 +90,7 @@ const translations: Record<Language, Record<string, string>> = {
     popupLater: 'Later',
     popupPlayers: 'players',
     popupDesktopTitle: 'YOUR EXCLUSIVE WELCOME BONUS',
-    popupDesktopDesc: 'Join thousands of winners at Casino Amambay. Claim your 100% bonus up to $1,000 + 200 free spins now!',
+    popupDesktopDesc: 'Join thousands of winners at Billions Bet. Claim your 100% bonus up to $1,000 + 200 free spins now!',
     popupBenefit1: '100% Bonus',
     popupBenefit2: '200 Free Spins',
     popupBenefit3: 'Instant Payout',
@@ -100,7 +100,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     responsibleGaming: 'Play Responsibly | 18+',
-    copyright: '2026 Casino Amambay. All rights reserved.',
+    copyright: '2026 Billions Bet. All rights reserved.',
     
     // Misc
     hours: 'hours',
@@ -113,7 +113,7 @@ const translations: Record<Language, Record<string, string>> = {
     playNow: 'JOGUE AGORA',
     
     // Hero
-    heroHeadline: 'GANHE GRANDE NO CASINO AMAMBAY',
+    heroHeadline: 'GANHE GRANDE NO BILLIONS BET',
     heroSubheadline: 'Experimente a emoção de ganhar com nossos jogos de cassino premium',
     currentJackpot: 'Jackpot Atual',
     
@@ -165,8 +165,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Location
     locationBadge: 'Nossa Localização',
     locationTitle: 'VISITE-NOS PESSOALMENTE',
-    locationSubtitle: 'Viva o luxo e a emoção no Amambay Hotel Casino em Pedro Juan Caballero, Paraguai.',
-    locationMapTitle: 'Localização do Amambay Hotel Casino',
+    locationSubtitle: 'Viva o luxo e a emoção no Billions Bet em Pedro Juan Caballero, Paraguai.',
+    locationMapTitle: 'Localização do Billions Bet',
     locationAddress: 'Endereço',
     locationHours: 'Horário de Funcionamento',
     locationOpen247: 'Aberto 24 horas por dia, 7 dias por semana',
@@ -189,7 +189,7 @@ const translations: Record<Language, Record<string, string>> = {
     popupLater: 'Depois',
     popupPlayers: 'jogadores',
     popupDesktopTitle: 'SEU BÔNUS EXCLUSIVO DE BOAS-VINDAS',
-    popupDesktopDesc: 'Junte-se a milhares de vencedores no Casino Amambay. Resgate seu bônus de 100% até R$ 5.000 + 200 rodadas grátis!',
+    popupDesktopDesc: 'Junte-se a milhares de vencedores no Billions Bet. Resgate seu bônus de 100% até R$ 5.000 + 200 rodadas grátis!',
     popupBenefit1: '100% Bônus',
     popupBenefit2: '200 Rodadas',
     popupBenefit3: 'Saque Rápido',
@@ -199,7 +199,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     responsibleGaming: 'Jogue com Responsabilidade | +18',
-    copyright: '2026 Casino Amambay. Todos os direitos reservados.',
+    copyright: '2026 Billions Bet. Todos os direitos reservados.',
     
     // Misc
     hours: 'horas',
@@ -212,7 +212,7 @@ const translations: Record<Language, Record<string, string>> = {
     playNow: 'JUGAR AHORA',
     
     // Hero
-    heroHeadline: 'GANA EN GRANDE EN CASINO AMAMBAY',
+    heroHeadline: 'GANA EN GRANDE EN BILLIONS BET',
     heroSubheadline: 'Experimenta la emoción de ganar con nuestros juegos de casino premium',
     currentJackpot: 'Bote Actual',
     
@@ -264,8 +264,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Location
     locationBadge: 'Nuestra Ubicación',
     locationTitle: 'VISÍTANOS EN PERSONA',
-    locationSubtitle: 'Vive el lujo y la emoción en Amambay Hotel Casino en Pedro Juan Caballero, Paraguay.',
-    locationMapTitle: 'Ubicación del Amambay Hotel Casino',
+    locationSubtitle: 'Vive el lujo y la emoción en Billions Bet en Pedro Juan Caballero, Paraguay.',
+    locationMapTitle: 'Ubicación del Billions Bet',
     locationAddress: 'Dirección',
     locationHours: 'Horario de Atención',
     locationOpen247: 'Abierto las 24 horas, los 7 días de la semana',
@@ -288,7 +288,7 @@ const translations: Record<Language, Record<string, string>> = {
     popupLater: 'Luego',
     popupPlayers: 'jugadores',
     popupDesktopTitle: 'TU BONO EXCLUSIVO DE BIENVENIDA',
-    popupDesktopDesc: 'Únete a miles de ganadores en Casino Amambay. ¡Reclama tu bono del 100% hasta $1,000 + 200 giros gratis!',
+    popupDesktopDesc: 'Únete a miles de ganadores en Billions Bet. ¡Reclama tu bono del 100% hasta $1,000 + 200 giros gratis!',
     popupBenefit1: '100% Bono',
     popupBenefit2: '200 Giros',
     popupBenefit3: 'Pago Rápido',
@@ -298,7 +298,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     responsibleGaming: 'Juega Responsablemente | +18',
-    copyright: '2026 Casino Amambay. Todos los derechos reservados.',
+    copyright: '2026 Billions Bet. Todos los derechos reservados.',
     
     // Misc
     hours: 'horas',
@@ -311,7 +311,7 @@ const translations: Record<Language, Record<string, string>> = {
     playNow: 'JOUER MAINTENANT',
     
     // Hero
-    heroHeadline: 'GAGNEZ GROS AU CASINO AMAMBAY',
+    heroHeadline: 'GAGNEZ GROS AU BILLIONS BET',
     heroSubheadline: 'Vivez le frisson de gagner avec nos jeux de casino premium',
     currentJackpot: 'Jackpot Actuel',
     
@@ -363,8 +363,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Location
     locationBadge: 'Notre Emplacement',
     locationTitle: 'VENEZ NOUS RENDRE VISITE',
-    locationSubtitle: 'Vivez le luxe et l\'excitation au Amambay Hotel Casino à Pedro Juan Caballero, Paraguay.',
-    locationMapTitle: 'Emplacement du Amambay Hotel Casino',
+    locationSubtitle: 'Vivez le luxe et l\'excitation au Billions Bet \u00e0 Pedro Juan Caballero, Paraguay.',
+    locationMapTitle: 'Emplacement du Billions Bet',
     locationAddress: 'Adresse',
     locationHours: 'Heures d\'Ouverture',
     locationOpen247: 'Ouvert 24 heures sur 24, 7 jours sur 7',
@@ -387,7 +387,7 @@ const translations: Record<Language, Record<string, string>> = {
     popupLater: 'Plus tard',
     popupPlayers: 'joueurs',
     popupDesktopTitle: 'VOTRE BONUS EXCLUSIF DE BIENVENUE',
-    popupDesktopDesc: 'Rejoignez des milliers de gagnants au Casino Amambay. Réclamez votre bonus de 100% jusqu\'à 1 000€ + 200 tours gratuits!',
+    popupDesktopDesc: 'Rejoignez des milliers de gagnants au Billions Bet. Réclamez votre bonus de 100% jusqu\'à 1 000€ + 200 tours gratuits!',
     popupBenefit1: '100% Bonus',
     popupBenefit2: '200 Tours',
     popupBenefit3: 'Paiement Rapide',
@@ -397,7 +397,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     responsibleGaming: 'Jouez de Manière Responsable | +18',
-    copyright: '2026 Casino Amambay. Tous droits réservés.',
+    copyright: '2026 Billions Bet. Tous droits réservés.',
     
     // Misc
     hours: 'heures',
@@ -410,7 +410,7 @@ const translations: Record<Language, Record<string, string>> = {
     playNow: 'ÑE\'Ẽ KO\'ÃNGA',
     
     // Hero
-    heroHeadline: 'EGANAta TUICHA CASINO AMAMBAY-PE',
+    heroHeadline: 'EGANAta TUICHA BILLIONS BET-PE',
     heroSubheadline: 'Eñandu vy\'a egana haguã ñande casino juego premium ndive',
     currentJackpot: 'Jackpot Ko\'ãgagua',
     
@@ -462,8 +462,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Location
     locationBadge: 'Ñande Rendaite',
     locationTitle: 'EJÚNA ORE RENDÁPE',
-    locationSubtitle: 'Eñandu lujo ha vy\'a Amambay Hotel Casino-pe Pedro Juan Caballero, Paraguay-pe.',
-    locationMapTitle: 'Amambay Hotel Casino Rendaite',
+    locationSubtitle: 'Eñandu lujo ha vy\'a Billions Bet-pe Pedro Juan Caballero, Paraguay-pe.',
+    locationMapTitle: 'Billions Bet Rendaite',
     locationAddress: 'Ñemohenda',
     locationHours: 'Aravo Ojepe\'áva',
     locationOpen247: 'Ijurujáva 24 aravo, 7 ára',
@@ -486,7 +486,7 @@ const translations: Record<Language, Record<string, string>> = {
     popupLater: 'Upéi',
     popupPlayers: 'oñembosaráva',
     popupDesktopTitle: 'NE BONO EXCLUSIVO ÑEMBOJEGUAPY',
-    popupDesktopDesc: 'Eikemi ogana heta va\'ekue Casino Amambay-pe. Ejapóta ne bono 100% $1,000 peve + 200 ñembojevy rei!',
+    popupDesktopDesc: 'Eikemi ogana heta va\'ekue Billions Bet-pe. Ejapóta ne bono 100% $1,000 peve + 200 ñembojevy rei!',
     popupBenefit1: '100% Bono',
     popupBenefit2: '200 Ñembojevy',
     popupBenefit3: 'Ñehepyme\'ẽ Pya\'e',
@@ -496,7 +496,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     responsibleGaming: 'Eñembosará Responsablemente | 18+',
-    copyright: '2026 Casino Amambay. Opavave derecho oñongatu.',
+    copyright: '2026 Billions Bet. Opavave derecho oñongatu.',
     
     // Misc
     hours: 'aravo',

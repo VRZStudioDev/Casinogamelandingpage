@@ -7,9 +7,9 @@ export const Location: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-16 sm:py-20 bg-[#080c18]">
+    <section className="relative py-16 sm:py-20 bg-[#0a0814] cv-auto">
       {/* Top gradient divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-600/20 to-transparent" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
@@ -20,9 +20,9 @@ export const Location: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 mb-4">
-            <MapPin className="w-3.5 h-3.5 text-red-400" />
-            <span className="text-xs font-medium text-red-400 tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-4">
+            <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="text-xs font-medium text-emerald-400 tracking-wide uppercase">
               {t('locationBadge')}
             </span>
           </div>
@@ -66,13 +66,13 @@ export const Location: React.FC = () => {
             {/* Address Card */}
             <div className="flex-1 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 hover:border-white/[0.1] transition-colors">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4 text-red-400" />
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white mb-1">{t('locationAddress')}</h3>
                   <p className="text-xs text-gray-400 leading-relaxed">
-                    Amambay Hotel Casino<br />
+                    Billions Bet<br />
                     Pedro Juan Caballero, Amambay<br />
                     Paraguay
                   </p>
@@ -83,8 +83,8 @@ export const Location: React.FC = () => {
             {/* Hours Card */}
             <div className="flex-1 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 hover:border-white/[0.1] transition-colors">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 text-red-400" />
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white mb-1">{t('locationHours')}</h3>
@@ -102,8 +102,8 @@ export const Location: React.FC = () => {
             {/* Contact Card */}
             <div className="flex-1 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 hover:border-white/[0.1] transition-colors">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-4 h-4 text-red-400" />
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white mb-1">{t('locationContact')}</h3>
@@ -121,7 +121,7 @@ export const Location: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-red-900/20"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-emerald-900/20"
             >
               <ExternalLink className="w-4 h-4" />
               {t('locationDirections')}
@@ -131,7 +131,7 @@ export const Location: React.FC = () => {
       </div>
 
       {/* Bottom gradient divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-600/20 to-transparent" />
     </section>
   );
 };

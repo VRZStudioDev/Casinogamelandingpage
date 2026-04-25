@@ -31,11 +31,11 @@ export const Header: React.FC = () => {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#080c18]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+          ? 'bg-[#0a0814]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between max-w-7xl mx-auto">
+      <div className="w-full px-2 sm:px-4 lg:px-6 py-1 sm:py-2 flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo */}
         <a
           href="https://casinoamambay.online"
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 group"
         >
-          <img src={logoUrl} alt="Casino Amambay" className="h-8 sm:h-10 transition-transform duration-300 group-hover:scale-105" />
+          <img src={logoUrl} alt="Billions Bet" className="h-16 sm:h-16 transition-transform duration-300 group-hover:scale-105" fetchPriority="high" decoding="async" />
         </a>
 
         {/* Right Actions */}
@@ -72,7 +72,7 @@ export const Header: React.FC = () => {
                       key={lang.code}
                       onClick={() => { setLanguage(lang.code); setShowLanguages(false); }}
                       className={`w-full px-4 py-2.5 flex items-center gap-2.5 hover:bg-white/[0.06] transition-all duration-200 text-sm ${
-                        language === lang.code ? 'bg-red-600/10 text-red-400' : 'text-gray-300'
+                        language === lang.code ? 'bg-emerald-600/10 text-emerald-400' : 'text-gray-300'
                       }`}
                     >
                       <span className="text-base">{lang.flag}</span>
@@ -93,8 +93,8 @@ export const Header: React.FC = () => {
             whileTap={{ scale: 0.96 }}
             className="relative px-5 sm:px-7 py-2 sm:py-2.5 rounded-lg font-semibold text-white text-xs sm:text-sm overflow-hidden group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-lg" />
-            <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-lg" />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute inset-[1px] rounded-[7px] bg-gradient-to-b from-white/[0.12] to-transparent opacity-60" />
             <span className="relative z-10 tracking-wide">{t('playNow')}</span>
           </motion.a>

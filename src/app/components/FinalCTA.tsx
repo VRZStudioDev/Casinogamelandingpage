@@ -7,10 +7,10 @@ export const FinalCTA: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 sm:py-24 bg-[#080c18] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0a0814] relative overflow-hidden cv-auto">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       {/* Radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-red-600/[0.06] rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-emerald-600/[0.06] rounded-full blur-[120px]" />
 
       <div className="w-full px-4 sm:px-6 max-w-3xl mx-auto relative z-10">
         <motion.div
@@ -22,7 +22,7 @@ export const FinalCTA: React.FC = () => {
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
             <span className="text-white">{t('readyToWin')?.split('?')[0]}</span>
-            <span className="bg-gradient-to-r from-red-500 to-amber-400 bg-clip-text text-transparent">?</span>
+            <span className="bg-gradient-to-r from-emerald-500 to-amber-400 bg-clip-text text-transparent">?</span>
           </h2>
 
           <p className="text-gray-500 text-sm sm:text-base max-w-lg mx-auto mb-8 sm:mb-10">
@@ -38,7 +38,7 @@ export const FinalCTA: React.FC = () => {
             whileTap={{ scale: 0.98 }}
             className="relative inline-flex items-center justify-center gap-3 px-10 sm:px-14 py-5 sm:py-6 rounded-2xl font-bold text-white text-lg sm:text-xl overflow-hidden group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-red-600 gradient-animate" />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 gradient-animate" />
             <div className="absolute inset-[1px] rounded-[15px] bg-gradient-to-b from-white/[0.12] to-transparent opacity-60" />
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"
@@ -57,9 +57,9 @@ export const FinalCTA: React.FC = () => {
 
           {/* Urgency */}
           <p className="mt-5 text-xs sm:text-sm text-gray-600">
-            <span className="text-red-400 font-medium">Vagas limitadas</span> ·{' '}
+            <span className="text-emerald-400 font-medium">Vagas limitadas</span> ·{' '}
             <motion.span
-              className="text-red-500 font-semibold"
+              className="text-emerald-500 font-semibold"
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >

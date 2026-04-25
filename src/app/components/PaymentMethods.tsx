@@ -22,7 +22,7 @@ export const PaymentMethods: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#080c18] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0a0814] relative overflow-hidden cv-auto">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="w-full px-4 sm:px-6 max-w-5xl mx-auto relative z-10">
@@ -50,7 +50,7 @@ export const PaymentMethods: React.FC = () => {
               transition={{ delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
               className="glass-card rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2 hover:border-white/[0.1] transition-colors duration-300 group"
             >
-              <span className="text-sm sm:text-base font-bold text-white group-hover:text-red-400 transition-colors">{method.name}</span>
+              <span className="text-sm sm:text-base font-bold text-white group-hover:text-emerald-400 transition-colors">{method.name}</span>
               <span className="text-[10px] text-gray-600">{method.label}</span>
             </motion.div>
           ))}
@@ -67,8 +67,8 @@ export const PaymentMethods: React.FC = () => {
               transition={{ delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="glass-card rounded-xl p-5 sm:p-6 text-center"
             >
-              <div className="w-10 h-10 rounded-lg bg-red-600/10 flex items-center justify-center mx-auto mb-3">
-                <feature.icon className="w-5 h-5 text-red-400" />
+              <div className="w-10 h-10 rounded-lg bg-emerald-600/10 flex items-center justify-center mx-auto mb-3">
+                <feature.icon className="w-5 h-5 text-emerald-400" />
               </div>
               <h3 className="font-semibold text-white text-sm mb-1">{feature.title}</h3>
               <p className="text-xs text-gray-500">{feature.desc}</p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { Sparkles, Star, Trophy } from 'lucide-react';
@@ -13,7 +13,6 @@ const getStoredJackpot = (): number => {
     const ts = localStorage.getItem(JACKPOT_TS_KEY);
     if (stored && ts) {
       const elapsed = Date.now() - Number(ts);
-      // Simulate increments that would have happened while away (~45 per 1.8s)
       const missedTicks = Math.floor(elapsed / 1800);
       const offlineGain = missedTicks * 45;
       return Number(stored) + offlineGain;
@@ -22,31 +21,50 @@ const getStoredJackpot = (): number => {
   return JACKPOT_BASE;
 };
 
+// Pre-compute particle data once at module level so it never changes between renders
+const PARTICLE_COUNT = 8; // Reduced from 12 for less GPU work
+const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
+  size: Math.random() * 3 + 1,
+  color: i % 3 === 0 ? 'rgba(5,150,105,0.6)' : 'rgba(255,255,255,0.2)',
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  yOffset: -60 - Math.random() * 40,
+  duration: 4 + Math.random() * 4,
+  delay: Math.random() * 3,
+}));
+
 export const HeroSection: React.FC = () => {
   const { t } = useLanguage();
   const [jackpot, setJackpot] = useState(getStoredJackpot);
+  const jackpotRef = useRef(jackpot);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setJackpot(prev => {
         const next = prev + Math.floor(Math.random() * 73 + 17);
-        try {
-          localStorage.setItem(JACKPOT_KEY, String(next));
-          localStorage.setItem(JACKPOT_TS_KEY, String(Date.now()));
-        } catch {}
+        jackpotRef.current = next;
         return next;
       });
     }, 1800);
-    return () => clearInterval(interval);
+
+    // Persist to localStorage at a slower rate (every 10s) to avoid thrashing
+    const persist = setInterval(() => {
+      try {
+        localStorage.setItem(JACKPOT_KEY, String(jackpotRef.current));
+        localStorage.setItem(JACKPOT_TS_KEY, String(Date.now()));
+      } catch {}
+    }, 10_000);
+
+    return () => { clearInterval(interval); clearInterval(persist); };
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* ── Layered Background ── */}
-      <div className="absolute inset-0 bg-[#080c18]">
+      <div className="absolute inset-0 bg-[#0a0814]">
         {/* Mesh gradient orbs */}
-        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-red-600/[0.07] blur-[120px]" />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-red-800/[0.08] blur-[100px]" />
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-600/[0.07] blur-[120px]" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-800/[0.08] blur-[100px]" />
         <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-amber-500/[0.03] blur-[100px]" />
 
         {/* Subtle grid */}
@@ -58,27 +76,27 @@ export const HeroSection: React.FC = () => {
           }}
         />
 
-        {/* Floating particles */}
+        {/* Floating particles – pre-computed for stable renders */}
         <div className="absolute inset-0 hidden sm:block">
-          {[...Array(12)].map((_, i) => (
+          {PARTICLES.map((p, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full"
+              className="absolute rounded-full gpu-accelerated"
               style={{
-                width: Math.random() * 3 + 1,
-                height: Math.random() * 3 + 1,
-                background: i % 3 === 0 ? 'rgba(220,38,38,0.6)' : 'rgba(255,255,255,0.2)',
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                width: p.size,
+                height: p.size,
+                background: p.color,
+                left: p.left,
+                top: p.top,
               }}
               animate={{
-                y: [0, -60 - Math.random() * 40, 0],
+                y: [0, p.yOffset, 0],
                 opacity: [0.2, 0.8, 0.2],
               }}
               transition={{
-                duration: 4 + Math.random() * 4,
+                duration: p.duration,
                 repeat: Infinity,
-                delay: Math.random() * 3,
+                delay: p.delay,
                 ease: 'easeInOut',
               }}
             />
@@ -93,11 +111,11 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-600/10 border border-red-500/20 mb-6 sm:mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600/10 border border-emerald-500/20 mb-6 sm:mb-8"
         >
           <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-          <span className="text-xs sm:text-sm font-medium text-red-300/90 tracking-wide">
-            #1 Casino Online do Paraguay
+          <span className="text-xs sm:text-sm font-medium text-emerald-300/90 tracking-wide">
+            #1 Casino Online do Brasil
           </span>
           <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
         </motion.div>
@@ -112,7 +130,7 @@ export const HeroSection: React.FC = () => {
           <span className="block text-white">
             {t('heroHeadline').split(' ').slice(0, 2).join(' ')}
           </span>
-          <span className="block mt-1 sm:mt-2 bg-gradient-to-r from-red-500 via-red-400 to-amber-400 bg-clip-text text-transparent">
+          <span className="block mt-1 sm:mt-2 bg-gradient-to-r from-emerald-500 via-emerald-400 to-amber-400 bg-clip-text text-transparent">
             {t('heroHeadline').split(' ').slice(2).join(' ')}
           </span>
         </motion.h1>
@@ -136,7 +154,7 @@ export const HeroSection: React.FC = () => {
         >
           <div className="relative glass-card rounded-2xl p-5 sm:p-8 border border-white/[0.06] overflow-hidden">
             {/* Inner glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
             <div className="absolute inset-0 rounded-2xl shimmer-bg" />
 
             <div className="relative z-10">
@@ -181,7 +199,7 @@ export const HeroSection: React.FC = () => {
             whileTap={{ scale: 0.97 }}
             className="relative w-full sm:w-auto px-10 sm:px-14 py-4 sm:py-5 rounded-xl font-bold text-white text-lg sm:text-xl overflow-hidden group cursor-pointer"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-red-600 gradient-animate rounded-xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 gradient-animate rounded-xl" />
             <div className="absolute inset-[1px] rounded-[11px] bg-gradient-to-b from-white/[0.15] to-transparent opacity-60" />
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.12] to-transparent"
@@ -228,7 +246,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#080c18] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0814] to-transparent" />
     </section>
   );
 };

@@ -110,7 +110,7 @@ export const WelcomePopup: React.FC = () => {
   // Mobile multi-step content
   const mobileSteps = [
     {
-      icon: <Gift className="w-8 h-8 text-red-400" />,
+      icon: <Gift className="w-8 h-8 text-emerald-400" />,
       title: t('popupStep1Title'),
       desc: t('popupStep1Desc'),
     },
@@ -217,7 +217,7 @@ export const WelcomePopup: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-lg rounded-2xl overflow-hidden bg-[#0c1020] border border-white/[0.08] shadow-2xl shadow-red-900/20"
+            className="relative w-full max-w-lg rounded-2xl overflow-hidden bg-[#0c0a1e] border border-white/[0.08] shadow-2xl shadow-emerald-900/20"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top bar: Language selector + Close */}
@@ -242,7 +242,7 @@ export const WelcomePopup: React.FC = () => {
             </div>
 
             {/* Top accent line */}
-            <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${claimed ? 'via-emerald-500/50' : 'via-red-500/50'} to-transparent`} />
+            <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${claimed ? 'via-emerald-500/50' : 'via-emerald-500/50'} to-transparent`} />
 
             {claimed ? (
               <ClaimedScreen />
@@ -253,17 +253,19 @@ export const WelcomePopup: React.FC = () => {
                 <div className="relative w-full h-48 overflow-hidden">
                   <img
                     src={modalImage}
-                    alt="Casino Amambay"
+                    alt="Billions Bet"
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c1020] via-[#0c1020]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a1e] via-[#0c0a1e]/40 to-transparent" />
                   {/* Step indicator on image */}
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
                     {[0, 1, 2].map((i) => (
                       <div
                         key={i}
                         className={`h-1 rounded-full transition-all duration-300 ${
-                          i === step ? 'w-6 bg-red-500' : 'w-1.5 bg-white/30'
+                          i === step ? 'w-6 bg-emerald-500' : 'w-1.5 bg-white/30'
                         }`}
                       />
                     ))}
@@ -307,7 +309,7 @@ export const WelcomePopup: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={nextStep}
-                      className={`${step > 0 ? 'flex-1' : 'w-full'} py-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-sm font-bold text-white transition-all flex items-center justify-center gap-2`}
+                      className={`${step > 0 ? 'flex-1' : 'w-full'} py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-sm font-bold text-white transition-all flex items-center justify-center gap-2`}
                     >
                       {step < 2 ? (
                         <>
@@ -346,7 +348,7 @@ export const WelcomePopup: React.FC = () => {
                     playsInline
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c1020] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a1e] via-transparent to-transparent" />
                 </div>
 
                 {/* Content overlay */}
@@ -370,7 +372,7 @@ export const WelcomePopup: React.FC = () => {
                   {/* Benefits row */}
                   <div className="flex gap-3 mb-6">
                     {[
-                      { icon: <Gift className="w-4 h-4 text-red-400" />, text: t('popupBenefit1') },
+                      { icon: <Gift className="w-4 h-4 text-emerald-400" />, text: t('popupBenefit1') },
                       { icon: <Trophy className="w-4 h-4 text-amber-400" />, text: t('popupBenefit2') },
                       { icon: <Sparkles className="w-4 h-4 text-emerald-400" />, text: t('popupBenefit3') },
                     ].map((b, i) => (
@@ -387,7 +389,7 @@ export const WelcomePopup: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleClaim}
-                      className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-sm font-bold text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-900/30"
+                      className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-sm font-bold text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30"
                     >
                       <Gift className="w-4 h-4" />
                       {t('popupClaim')}
@@ -404,7 +406,7 @@ export const WelcomePopup: React.FC = () => {
             )}
 
             {/* Bottom accent */}
-            <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${claimed ? 'via-emerald-500/30' : 'via-red-500/30'} to-transparent`} />
+            <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${claimed ? 'via-emerald-500/30' : 'via-emerald-500/30'} to-transparent`} />
           </motion.div>
 
           {/* Language dropdown - rendered outside modal to avoid overflow clipping */}
@@ -417,7 +419,7 @@ export const WelcomePopup: React.FC = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.95 }}
                   transition={{ duration: 0.2, ease: 'easeOut' }}
-                  className="fixed bg-[#0d111f]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl overflow-hidden shadow-2xl shadow-black/40 min-w-[150px] z-[110]"
+                  className="fixed bg-[#0d0b18]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl overflow-hidden shadow-2xl shadow-black/40 min-w-[150px] z-[110]"
                   style={{ top: rect.bottom + 8, right: window.innerWidth - rect.right }}
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -426,7 +428,7 @@ export const WelcomePopup: React.FC = () => {
                       key={lang.code}
                       onClick={() => { setLanguage(lang.code); setShowLangMenu(false); }}
                       className={`w-full px-4 py-2.5 flex items-center gap-2.5 hover:bg-white/[0.06] transition-all duration-200 text-sm ${
-                        language === lang.code ? 'bg-red-600/10 text-red-400' : 'text-gray-300'
+                        language === lang.code ? 'bg-emerald-600/10 text-emerald-400' : 'text-gray-300'
                       }`}
                     >
                       <span className="text-base">{lang.flag}</span>

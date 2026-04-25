@@ -17,16 +17,16 @@ export const TestimonialsGallery: React.FC = () => {
   const { t } = useLanguage();
 
   const winners: Winner[] = [
-    { name: 'João S.', location: 'São Paulo, BR', amount: 'R$ 12.450', quote: 'Experiência incrível! Ganhei muito na minha primeira semana!', timeAgo: '2', initials: 'JS', color: 'from-red-500 to-rose-600' },
+    { name: 'João S.', location: 'São Paulo, BR', amount: 'R$ 12.450', quote: 'Experiência incrível! Ganhei muito na minha primeira semana!', timeAgo: '2', initials: 'JS', color: 'from-emerald-500 to-teal-600' },
     { name: 'María G.', location: 'Asunción, PY', amount: 'R$ 8.900', quote: 'Melhor casino que já joguei. Saques rápidos!', timeAgo: '5', initials: 'MG', color: 'from-amber-500 to-orange-600' },
     { name: 'Pedro R.', location: 'Ciudad del Este, PY', amount: 'R$ 15.200', quote: 'Bônus incríveis e ótima seleção de jogos!', timeAgo: '3', initials: 'PR', color: 'from-emerald-500 to-green-600' },
     { name: 'Ana P.', location: 'Encarnación, PY', amount: 'R$ 6.750', quote: 'Jogo justo e excelente suporte ao cliente!', timeAgo: '7', initials: 'AP', color: 'from-blue-500 to-indigo-600' },
     { name: 'Carlos M.', location: 'Buenos Aires, AR', amount: 'R$ 11.300', quote: 'Ganhei o jackpot! Não acredito!', timeAgo: '4', initials: 'CM', color: 'from-purple-500 to-violet-600' },
-    { name: 'Lucia F.', location: 'São Paulo, BR', amount: 'R$ 9.500', quote: 'Grande variedade de jogos e plataforma segura!', timeAgo: '6', initials: 'LF', color: 'from-pink-500 to-rose-600' },
+    { name: 'Lucia F.', location: 'São Paulo, BR', amount: 'R$ 9.500', quote: 'Grande variedade de jogos e plataforma segura!', timeAgo: '6', initials: 'LF', color: 'from-pink-500 to-fuchsia-600' },
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#080c18] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0a0814] relative overflow-hidden cv-auto">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="w-full px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
@@ -85,7 +85,7 @@ export const TestimonialsGallery: React.FC = () => {
               <div className="flex items-center justify-between pt-3 border-t border-white/[0.05]">
                 <div>
                   <p className="text-[10px] text-gray-500 mb-0.5">{t('won')}</p>
-                  <p className="text-lg font-bold text-glow-red text-red-400">{winner.amount}</p>
+                  <p className="text-lg font-bold text-glow-green text-emerald-400">{winner.amount}</p>
                 </div>
                 <span className="text-[11px] text-gray-600">{winner.timeAgo}h atrás</span>
               </div>
@@ -95,8 +95,8 @@ export const TestimonialsGallery: React.FC = () => {
 
         {/* Live ticker */}
         <div className="mt-10 sm:mt-14 relative overflow-hidden rounded-xl glass-card py-3">
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0d1117] to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0d1117] to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0d0b18] to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0d0b18] to-transparent z-10" />
           <motion.div
             className="flex gap-8 whitespace-nowrap px-4"
             animate={{ x: [0, -1200] }}
@@ -107,7 +107,7 @@ export const TestimonialsGallery: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
                 <span className="text-gray-500">
                   <strong className="text-white">{w.name}</strong> ganhou{' '}
-                  <strong className="text-red-400">{w.amount}</strong>
+                  <strong className="text-emerald-400">{w.amount}</strong>
                 </span>
               </div>
             ))}

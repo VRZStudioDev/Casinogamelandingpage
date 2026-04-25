@@ -21,9 +21,9 @@ export const WelcomeBonus: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-16 sm:py-24 bg-[#080c18] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0a0814] relative overflow-hidden cv-auto">
       {/* Background orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-red-600/[0.04] rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-emerald-600/[0.04] rounded-full blur-[120px]" />
 
       <div className="w-full px-4 sm:px-6 max-w-4xl mx-auto relative z-10">
         <motion.div
@@ -35,8 +35,8 @@ export const WelcomeBonus: React.FC = () => {
         >
           {/* Card background with inner border glow */}
           <div className="absolute inset-0 glass-card" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
 
           <div className="relative z-10 p-6 sm:p-10 md:p-14">
             {/* Header */}
@@ -54,7 +54,7 @@ export const WelcomeBonus: React.FC = () => {
                 {t('welcomeBonus')}
               </h2>
               <p className="text-2xl sm:text-4xl font-bold text-white/90 mb-1">{t('upTo')}</p>
-              <p className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+              <p className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
                 {t('freeSpins')}
               </p>
             </div>
@@ -63,14 +63,14 @@ export const WelcomeBonus: React.FC = () => {
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
               <div className="glass-card rounded-xl p-4 sm:p-5">
                 <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-red-600/20 flex items-center justify-center">
-                    <TrendingUp className="w-4 h-4 text-red-400" />
+                  <div className="w-8 h-8 rounded-lg bg-emerald-600/20 flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-emerald-400" />
                   </div>
                   <h3 className="font-semibold text-white text-sm">{t('firstDeposit')}</h3>
                 </div>
                 <div className="w-full bg-white/[0.06] rounded-full h-2 overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-red-600 to-red-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full"
                     initial={{ width: 0 }}
                     whileInView={{ width: '100%' }}
                     viewport={{ once: true }}
@@ -102,10 +102,10 @@ export const WelcomeBonus: React.FC = () => {
             </div>
 
             {/* Countdown */}
-            <div className="glass-card rounded-xl p-4 sm:p-5 mb-8 border border-red-500/10">
+            <div className="glass-card rounded-xl p-4 sm:p-5 mb-8 border border-emerald-500/10">
               <div className="flex items-center justify-center gap-2 mb-3">
-                <Clock className="w-4 h-4 text-red-400" />
-                <p className="text-red-400 font-semibold text-sm">{t('offerEnds')}</p>
+                <Clock className="w-4 h-4 text-emerald-400" />
+                <p className="text-emerald-400 font-semibold text-sm">{t('offerEnds')}</p>
               </div>
               <div className="flex justify-center gap-3">
                 {[
@@ -134,7 +134,7 @@ export const WelcomeBonus: React.FC = () => {
               whileTap={{ scale: 0.98 }}
               className="block relative w-full py-4 sm:py-5 rounded-xl font-bold text-white text-lg sm:text-xl overflow-hidden group text-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-red-600 gradient-animate" />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 gradient-animate" />
               <div className="absolute inset-[1px] rounded-[11px] bg-gradient-to-b from-white/[0.12] to-transparent opacity-60" />
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"
@@ -147,7 +147,7 @@ export const WelcomeBonus: React.FC = () => {
             {/* Social proof */}
             <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-500">
               <Users className="w-3.5 h-3.5" />
-              <span>{t('limitedOffer')} · <strong className="text-red-400">127</strong> {t('playersJoined')}</span>
+              <span>{t('limitedOffer')} · <strong className="text-emerald-400">127</strong> {t('playersJoined')}</span>
             </div>
           </div>
         </motion.div>

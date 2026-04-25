@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
+  --background: #041504;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -182,8 +182,8 @@
   /* ══════ Premium Casino Animations ══════ */
   
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.4); }
-    50% { box-shadow: 0 0 45px rgba(220, 38, 38, 0.7); }
+    0%, 100% { box-shadow: 0 0 20px rgba(5, 150, 105, 0.4); }
+    50% { box-shadow: 0 0 45px rgba(5, 150, 105, 0.7); }
   }
 
   @keyframes float {
@@ -208,7 +208,7 @@
 
   @keyframes neon-flicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { 
-      text-shadow: 0 0 7px #DC2626, 0 0 10px #DC2626, 0 0 21px #DC2626, 0 0 42px #B91C1C;
+      text-shadow: 0 0 7px #059669, 0 0 10px #059669, 0 0 21px #059669, 0 0 42px #047857;
     }
     20%, 24%, 55% { text-shadow: none; }
   }
@@ -219,16 +219,17 @@
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255,255,255,0.08);
+    contain: layout style paint;
   }
 
   .glass-card-hover:hover {
     background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
-    border-color: rgba(220, 38, 38, 0.3);
-    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+    border-color: rgba(5, 150, 105, 0.3);
+    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
   }
 
-  .text-glow-red {
-    text-shadow: 0 0 10px rgba(220, 38, 38, 0.5), 0 0 30px rgba(220, 38, 38, 0.2);
+  .text-glow-green {
+    text-shadow: 0 0 10px rgba(5, 150, 105, 0.5), 0 0 30px rgba(5, 150, 105, 0.2);
   }
 
   .text-glow-gold {
@@ -288,21 +289,49 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #080c18;
+    background: #0a0814;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #DC2626, #991B1B);
+    background: linear-gradient(180deg, #059669, #065F46);
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #EF4444, #DC2626);
+    background: linear-gradient(180deg, #10B981, #059669);
   }
 
   /* Selection color */
   ::selection {
-    background: rgba(220, 38, 38, 0.3);
+    background: rgba(5, 150, 105, 0.3);
     color: #fff;
+  }
+
+  /* ══════ Content-Visibility for below-fold sections ══════ */
+  /* Skips rendering work for off-screen sections until the browser is about
+     to scroll them into view – massive paint/layout savings on initial load. */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+
+  /* ══════ Reduced-motion accessibility ══════ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .shimmer-bg,
+    .gradient-animate {
+      animation: none !important;
+    }
+
+    .glass-card {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
   }
 }
